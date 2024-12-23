@@ -1,0 +1,44 @@
+﻿<Window x:Class="MyApp.Views.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyApp.Views"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="310" Width="335">
+    <Grid Background="#FFF1E1EF" Margin="0,0,0,-6" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="317*"/>
+            <ColumnDefinition Width="15*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left" Height="264" Grid.ColumnSpan="2"
+                    Margin="6,0,0,0">
+            <TextBlock TextAlignment="Center" 
+                       FontSize="25" FontWeight="Bold" 
+                       Width="303" FontFamily="Constantia" Height="59" HorizontalAlignment="Center"><Run Text="Добро "/><LineBreak/><Run Text="пожаловать"/></TextBlock>
+
+            <TextBlock Margin="0,5,0,0" HorizontalAlignment="Center" FontSize="14" Text="Вход" FontFamily="Constantia"/>
+            <TextBlock Margin="0,0,0,5" Width="207" FontFamily="Constantia"
+                       Text="Логин"/>
+
+            <TextBox Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Width="211" 
+                     FontFamily="Constantia" />
+            <TextBlock Text="Пароль" Margin="0,10,0,5" Width="210" FontFamily="Constantia" />
+            <PasswordBox x:Name="PasswordBox" FontFamily="Constantia" Width="212" />
+            <Grid Width="319" Margin="0,5,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Content="Войти" Command="{Binding LoginCommand}" 
+                        CommandParameter="{Binding ElementName=PasswordBox}" 
+                        Margin="64,10,0,0" HorizontalAlignment="Left" Width="85" 
+                        Background="#FFD9B4D5" FontFamily="Constantia" BorderBrush="{x:Null}"/>
+                <Button Content="Регистрация" Command="{Binding RegisterCommand}" Margin="168,10,0,0" 
+                        HorizontalAlignment="Left" Width="85" Background="#FFD9B4D5" 
+                        FontFamily="Constantia" BorderBrush="{x:Null}" />
+            </Grid>
+            <Image Height="56" Source="/Images/cat1.jpg" Stretch="Fill" Width="66" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,10,0,5"/>
+        </StackPanel>
+    </Grid>
+</Window>

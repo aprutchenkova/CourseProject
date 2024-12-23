@@ -1,0 +1,21 @@
+﻿<Window x:Class="MyApp.Views.ThemeSelectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Выбор темы" Height="350" Width="350" Background="#FFF1E1EF">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Словарь" Margin="0,10,0,10" FontWeight="Bold" FontFamily="Constantia" 
+                       HorizontalAlignment="Center" FontSize="22" />
+            <TextBlock FontFamily="Constantia" Width="277" Margin="0,0,0,5" Text="Мои списки"/>
+            <Border Background="White" CornerRadius="10" Padding="10" Width="302">
+                <ListBox ItemsSource="{Binding Themes}" DisplayMemberPath="Name" SelectedItem="{Binding SelectedTheme}" 
+                         SelectionChanged="ListBox_SelectionChanged" Height="186" Width="280" 
+                         BorderBrush="{x:Null}" FontFamily="Constantia"/>
+            </Border>
+            <Button Content="Назад" Command="{Binding GoBackCommand}" 
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" 
+                    Width="49" Background="#FFD9B4D5" FontFamily="Constantia" 
+                    Margin="0,10,0,0" BorderBrush="{x:Null}"/>
+        </StackPanel>
+    </Grid>
+</Window>
